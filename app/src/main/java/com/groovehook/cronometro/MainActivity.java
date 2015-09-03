@@ -5,20 +5,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-//Importando os botões da API do android
+//Importando os botï¿½es da API do android
 import android.view.View;
 import android.widget.Button;
-//Importando as funções do cronometro da API do android
+//Importando as funï¿½ï¿½es do cronometro da API do android
 import android.widget.Chronometer;
 
 public class MainActivity extends ActionBarActivity {
     //Declarando os objetos que irei usar no cronometro...
     Chronometer m_chronometer;
-    // Instanciando os botões do layout como objetos Button
+    // Instanciando os botï¿½es do layout como objetos Button
     Button btIniciar, btPausar, btResetar;
     // Define is click pause para fazer valer o evento
     boolean isClickPause = false;
-    //Variavel que espera o tempo de quando o cronometro é parado
+    //Variavel que espera o tempo de quando o cronometro ï¿½ parado
     long timeSetWhenStopped = 0;
 
 
@@ -37,7 +37,10 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View arg0) {
                 if (isClickPause) {
+                    //Usando o metodo setbase() no objeto m_chronometer ajusta o tempo de base. Para isso
+                    //usa como parametro os milisegundos que se passaram desde o boot do sistema e o tempo de parada.
                     m_chronometer.setBase(SystemClock.elapsedRealtime() + timeSetWhenStopped);
+                    // O metodo start() inicia o cronometro a partir a base ajustada
                     m_chronometer.start();
                     timeSetWhenStopped = 0;
                     isClickPause = false;
